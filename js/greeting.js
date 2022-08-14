@@ -14,6 +14,7 @@ function onLoginSubmit(e) {
   e.preventDefault();
   const typedUsername = loginInput.value;
   localStorage.setItem(USERNAME_KEY, typedUsername);
+  localStorage.setItem('darkmode', false);
   loginForm.classList.add(FADEOUT_CLASSNAME);
   big_clock.classList.add(FADEOUT_CLASSNAME);
   setTimeout(() => {
