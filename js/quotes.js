@@ -1,46 +1,43 @@
 const quotes = [
   {
-    quote:
-      "You know, Hobbes, some days even my lucky rocketship underpants don't help.",
-    author: 'Bill Watterson',
+    quote: 'Where there is a will there is a way.',
+    author: 'Angela Merkel',
   },
   {
-    quote:
-      "Even if we don't have the power to choose where we come from, we can still choose where we go from there.",
-    author: 'Stephen Chbosky',
+    quote: 'Life is a journey.',
+    author: 'Ralph Waldo Emerson',
   },
   {
     quote: "And now that you don't have to be perfect, you can be good.",
     author: 'John Steinbeck',
   },
   {
-    quote: `I haven't had a very good day. I think I might still be hungover and everyone's dead and my root beer's gone.`,
-    author: 'Holly Black',
+    quote: `No pain, No gain.`,
+    author: 'Benjamin Franklin',
   },
   {
-    quote: `But I am very poorly today & very stupid & I hate everybody & everything. One lives only to make blunders.`,
-    author: `Charles Darwin`,
+    quote: `The die is cast.`,
+    author: `Julius Caesar`,
   },
   {
-    quote: `Life is never fair, and perhaps it is a good thing for most of us that it is not.`,
-    author: `Oscar Wilde`,
+    quote: `This too shall pass away.`,
+    author: `Abraham Lincoln`,
   },
   {
-    quote: `I've had the sort of day that would make St. Francis of Assisi kick babies.`,
-    author: `Douglas Adams`,
+    quote: `Seeing is believing.`,
+    author: `Thomas Fuller`,
   },
   {
-    quote: 'Anyone who has never made a mistake has never tried anything new.',
-    author: 'Albert Einstein',
+    quote: 'The will of man is his happiness.',
+    author: 'Friedrich Schiller',
   },
   {
-    quote: "We are all broken, that's how the light gets in.",
-    author: 'Ernest Hemingway',
+    quote: 'When in doubt, choose change.',
+    author: 'Lily Leung',
   },
   {
-    quote:
-      'Monsters are real, ghosts are real, too. They live inside us, and sometimes they win.',
-    author: 'Stephen King',
+    quote: "Don't dream, Be it.",
+    author: 'Tim Curry',
   },
 ];
 
@@ -50,4 +47,4 @@ const author = document.querySelector('#quote span:last-child');
 const todaysQuote = quotes[Math.floor(Math.random() * quotes.length)];
 
 quote.innerText = todaysQuote.quote;
-author.innerText = todaysQuote.author;
+author.innerText = ` - ${todaysQuote.author} -`;

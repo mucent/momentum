@@ -11,23 +11,23 @@ function saveToDos() {
 }
 
 function deleteToDo(e) {
-  const li = e.target.parentElement;
-  li.remove();
-  toDos = toDos.filter((toDo) => toDo.id !== parseInt(li.id));
+  const div = e.target.parentElement;
+  div.remove();
+  toDos = toDos.filter((toDo) => toDo.id !== parseInt(div.id));
   saveToDos();
 }
 
 function paintToDo(newTodo) {
-  const li = document.createElement('li');
-  li.id = newTodo.id;
+  const div = document.createElement('div');
+  div.id = newTodo.id;
   const span = document.createElement('span');
   span.innerText = newTodo.text;
   const img = document.createElement('img');
   img.src = 'img/delete.png';
   img.addEventListener('click', deleteToDo);
-  li.appendChild(span);
-  li.appendChild(img);
-  toDoList.appendChild(li);
+  div.appendChild(span);
+  div.appendChild(img);
+  toDoList.appendChild(div);
 }
 
 function handleToDoSubmit(e) {

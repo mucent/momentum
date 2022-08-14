@@ -4,28 +4,117 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Momentum App</title>
+  <title>Momentum</title>
   <link rel="stylesheet" href="css/style.css"/>
 </head>
 <body>
   <h2 id="clock">00:00</h2>
-  <form id="login-form" class="hidden">
-    <input required maxlength="15" type="text" placeholder="What is your name?" />
-    <input type="submit" value="Log In"/>
+  <form id="login-form">
+    <input required maxlength="15" type="text" />
   </form>
-  <h1 id="greeting" class="hidden"></h1>
-  <form id="todo-form">
-    <input type="text" placeholder="Write a To Do and Press Enter" required />
-  </form>
-  <ul id="todo-list"></ul>
-  <div id="quote">
-    <span></span>
-    <span></span>
+  <div id="page" style="display: none;">
+    <div id="header">
+      <h1 id="greeting"></h1>
+      <form id="google" action="https://www.google.com/search" method="GET">
+        <input placeholder="Google 검색 또는 URL 입력" type="text" name="q" required/>
+      </form>
+      <div id="header-right">
+        <div id="date">
+          <h3 id="day"></h>
+          <h3 id="mini-clock">00:00</h3>
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      <div id="left-box">
+        <div id="bmBox">
+          <button id="bmBtn" onclick="window.open('https://www.google.com')">
+            <img id="img" src="/img/google.png"/>
+          </button>
+          <button id="bmBtn" onclick="window.open('http://mail.google.com')">
+            <img id="img" src="/img/gmail.png"/>
+          </button>
+          <button id="bmBtn" onclick="window.open('https://youtube.com')">
+            <img id="img" src="/img/youtube.png"/>
+          </button>
+          <button id="bmBtn" onclick="window.open('https://github.com')">
+            <img id="img" src="/img/github.png"/>
+          </button>
+          <button id="bmBtn" onclick="window.open('https://nomadcoders.co')">
+            <img id="img" src="/img/nomad.svg"/>
+          </button>
+          <button id="bmBtn" onclick="window.open('https://developer.mozilla.org/ko/')">
+            <img id="img" src="/img/mdn.jpeg"/>
+          </button>
+        </div>
+      </div>
+      <div id="box">
+        <span id="title">To Do List</span>
+        <form id="todo-form">
+          <input type="text" placeholder="What will you do today?" required />
+        </form>
+        <div id="todo-list"></div>
+      </div>
+      <div id="fake-box">
+        <div id="innerBox1">
+          <span id="title">Weather</span>
+          <img id="weatherIcon"/>
+          <div id="weather">
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+        <div id="innerBox2">
+          <span id="title">Quote</span>
+          <div id="quote">
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </div>
+      <div id="right-box">
+        <button id="colorBtn">
+          <img id="img" src="/img/color.png"/>
+        </button>
+        <button id="outBtn">
+          <img id="img" src="/img/signout.png"/>
+        </button>
+      </div>
+    </div>
+    <div id="copyright">
+      Copyright 2022. Kyunghyun Kang All Rights Reserved.
+    </div>
   </div>
   <script src="js/greeting.js"></script>
   <script src="js/clock.js"></script>
   <script src="js/quotes.js"></script>
   <script src="js/background.js"></script>
   <script src="js/todo.js"></script>
+  <script src="js/weather.js"></script>
+  <script src="https://unpkg.com/typeit@8.7.0/dist/index.umd.js"></script>
+  <script>
+    const login_Form = document.querySelector('#login-form');
+    login_Form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      setTimeout(() => {
+        const username = localStorage.getItem(USERNAME_KEY);
+        const greeting = document.querySelector('#greeting');
+        greeting.innerText = `Welcome ${username}!`
+        new TypeIt('#greeting')
+        .go();
+      }, 3000)
+    });
+    const username = localStorage.getItem(USERNAME_KEY);
+    greeting.innerText = `Welcome ${username}!`
+    new TypeIt('#login-form input', {
+      strings: `What is your name?`,
+      })
+      .empty()
+      .go()
+    setTimeout(()=>{
+      const login_input = login_Form.querySelector('input');
+      login_input.placeholder = "What is your name?"
+    }, 1000)
+  </script>
 </body>
 </html>
