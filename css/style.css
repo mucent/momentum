@@ -300,12 +300,16 @@ img {
   color:rgba(255, 255, 255, 0.9);
 }
 
+#quote span {
+  width: 100%;
+}
+
 #quote span:first-child {
   margin-bottom: 10px;
 }
 
 #quote span:last-child {
-  font-size: 16px;
+  font-size: 14px;
 }
 
 #day {
