@@ -23,9 +23,9 @@ function setDarkMode() {
       element.style.border = `1px solid rgba(0, 0, 0, 0.8);`;
     });
     wrap.style.background = `rgba(0, 0, 0, 0.3)`;
-    _body.style.color = 'black';
+    _body.style.color = 'rgba(140, 140, 140, 1)';
     inputs.forEach((input) => {
-      input.style.color = 'black';
+      input.style.color = 'rgba(140, 140, 140, 1)';
     });
     localStorage.setItem('darkmode', true);
   }
