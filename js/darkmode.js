@@ -1,8 +1,6 @@
 function setDarkMode() {
   const darkMode = document.querySelectorAll('.darkMode');
   const wrap = document.querySelector('#wrap');
-  const _body = document.querySelector('body');
-  const inputs = document.querySelectorAll('input');
   const isDarkMode = localStorage.getItem('darkmode');
   if (isDarkMode === 'true') {
     darkMode.forEach((element) => {
@@ -11,10 +9,6 @@ function setDarkMode() {
       element.style.border = `1px solid rgba(255, 255, 255, 0.8);`;
     });
     wrap.style.background = `rgba(255, 255, 255, 0.3)`;
-    _body.style.color = 'white';
-    inputs.forEach((input) => {
-      input.style.color = 'white';
-    });
     localStorage.setItem('darkmode', false);
   } else {
     darkMode.forEach((element) => {
@@ -23,10 +17,6 @@ function setDarkMode() {
       element.style.border = `1px solid rgba(0, 0, 0, 0.8);`;
     });
     wrap.style.background = `rgba(0, 0, 0, 0.3)`;
-    _body.style.color = 'rgba(140, 140, 140, 1)';
-    inputs.forEach((input) => {
-      input.style.color = 'rgba(140, 140, 140, 1)';
-    });
     localStorage.setItem('darkmode', true);
   }
 }
