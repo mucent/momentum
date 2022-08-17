@@ -81,11 +81,11 @@ input {
 }
 
 #greeting {
-  width: 300px;
+  width: 40%;
 }
 
 #header-right {
-  width: 300px;
+  width: 40%;
   display: flex;
   justify-content: flex-end;
   align-items: center;
