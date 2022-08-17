@@ -79,15 +79,21 @@
             <img id="img" src="./img/color.png"/>
           </button>
           <button class="darkMode" title="Dark Mode" id="darkMode" >
-            <img id="img" src="./img/darkmode.png"/>
+            <img id="img" src="./img/dark.png"/>
           </button>
           <button class="darkMode" title="Log Out" id="outBtn">
-            <img id="img" src="./img/logout.png"/>
+            <img id="img" src="./img/logout-dark.png"/>
           </button>
         </div>
       </div>
-      <div id="copyright">
-        Copyright 2022. Kyunghyun Kang All Rights Reserved.
+      <div id="footer">
+        <div id="fake-footer"></div>
+        <div id="copyright">
+          Copyright 2022. Kyunghyun Kang All Rights Reserved.
+        </div>
+        <div id="source">
+          <a target="_blank" href="https://icons8.com/icon/BdksXmxLaK8r/출구">출구</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+        </div>
       </div>
     </div>
   </div>
@@ -99,29 +105,50 @@
   <script src="js/weather.js"></script>
   <script src="js/darkmode.js"></script>
   <script src="https://unpkg.com/typeit@8.7.0/dist/index.umd.js"></script>
-  <script>
+  <script>    
     const login_Form = document.querySelector('#login-form');
+    setTimeout(()=>{
+      const login_input = login_Form.querySelector('input');
+      login_input.placeholder = "What is your name?"
+    }, 1000)
+
+    const login_msg = new TypeIt('#login-form input', {
+      speed: 100,
+      })
+      .type(`What is your name?`)
+      .pause(200)
+      .empty();
+    login_msg.go();
+
+    const logout_Btn = document.querySelector('#outBtn');
+    logout_Btn.addEventListener('click', () => {
+      login_msg.reset().go();
+    })
+
     login_Form.addEventListener('submit', (e) => {
       e.preventDefault();
       setTimeout(() => {
         const username = localStorage.getItem(USERNAME_KEY);
         const greeting = document.querySelector('#greeting');
-        greeting.innerText = `Welcome ${username}!`
-        new TypeIt('#greeting')
-        .go();
-      }, 3000)
+        greeting.innerText = `Welcome ${username}!`;
+        const greeting_msg = new TypeIt('#greeting', {
+          speed: 100,
+          })
+        greeting_msg.go();
+      }, 3000);
     });
-    const username = localStorage.getItem(USERNAME_KEY);
-    greeting.innerText = `Welcome ${username}!`
-    new TypeIt('#login-form input', {
-      strings: `What is your name?`,
-      })
-      .empty()
-      .go()
-    setTimeout(()=>{
-      const login_input = login_Form.querySelector('input');
-      login_input.placeholder = "What is your name?"
-    }, 1000)
+
+    window.addEventListener('load', () => {
+      const username = localStorage.getItem(USERNAME_KEY);
+        const greeting = document.querySelector('#greeting');
+        greeting.innerText = `Welcome ${username}!`;
+        const greeting_msg = new TypeIt('#greeting', {
+          speed: 100,
+          })
+        greeting_msg.go();
+    })
+    
+    
   </script>
 </body>
 </html>
