@@ -5,7 +5,7 @@
 ![다크모드](img/darkmode.png)
 
 ## 배포 URL
-[https://mucent.github.io/momentum](https://mucent.github.io/momentum)
+[https://nageune.github.io/momentum](https://nageune.github.io/momentum)
 
 ## 기능
 - 투두 리스트
